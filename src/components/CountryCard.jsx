@@ -14,7 +14,7 @@ const CountryCard = ({ country }) => {
       <div className="bg-white p-8">
         <h3 className="section-title pb-4 text-[18px]">{country.name}</h3>
 
-        <ul className="flex flex-col gap-1">
+        <ul className="flex flex-col gap-1 text-[14px]">
           <li className="flex items-center gap-1 font-semibold text-gray-900">
             Population:
             <span className="font-light text-gray-700">
