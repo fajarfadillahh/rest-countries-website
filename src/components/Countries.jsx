@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Menu } from "@headlessui/react";
+import React, { Fragment, useEffect, useState } from "react";
+import { Menu, Transition } from "@headlessui/react";
 import { RiSearchLine, RiArrowDownSLine } from "react-icons/ri";
 
 // import Api
@@ -57,23 +57,33 @@ const Countries = () => {
               <RiArrowDownSLine size="1.3rem" />
             </Menu.Button>
 
-            <Menu.Items
-              as="ul"
-              className="absolute mt-2 flex w-full flex-col gap-1 rounded-md bg-white py-4 px-6 shadow-sm"
+            <Transition
+              as={Fragment}
+              enter="transition ease-in duration-100"
+              enterFrom="transform opacity-0 scale-95"
+              enterTo="transform opacity-100 scale-100"
+              leave="transition ease-in duration-100"
+              leaveFrom="transform opacity-100 scale-100"
+              leaveTo="transform opacity-0 scale-95"
             >
-              {regionList.map((region, index) => {
-                return (
-                  <Menu.Item
-                    as="li"
-                    key={index}
-                    onClick={() => setRegions(region.name)}
-                    className="cursor-pointer font-semibold text-gray-900 hover:text-gray-600"
-                  >
-                    {region.name}
-                  </Menu.Item>
-                );
-              })}
-            </Menu.Items>
+              <Menu.Items
+                as="ul"
+                className="absolute mt-2 flex w-full flex-col gap-1 rounded-md bg-white py-4 px-6 shadow-sm"
+              >
+                {regionList.map((region, index) => {
+                  return (
+                    <Menu.Item
+                      as="li"
+                      key={index}
+                      onClick={() => setRegions(region.name)}
+                      className="cursor-pointer font-semibold text-gray-900 hover:text-gray-600"
+                    >
+                      {region.name}
+                    </Menu.Item>
+                  );
+                })}
+              </Menu.Items>
+            </Transition>
           </Menu>
         </div>
 
