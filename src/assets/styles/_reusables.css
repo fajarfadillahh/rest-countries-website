@@ -1,0 +1,17 @@
+@layer components {
+  /* section class */
+  .section {
+    @apply py-16;
+  }
+  .section-title {
+    @apply text-[24px] font-black -tracking-tighter text-gray-900;
+  }
+  .section-text {
+    @apply font-semibold -tracking-tighter text-gray-600;
+  }
+
+  /* container class */
+  .container {
+    @apply mx-auto w-[calc(100%-3rem)] max-w-7xl;
+  }
+}
