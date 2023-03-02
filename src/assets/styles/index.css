@@ -1,0 +1,7 @@
+/* import css */
+@import url("./_fonts.css");
+
+/* tailwind directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

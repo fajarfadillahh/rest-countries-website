@@ -1,0 +1,19 @@
+/* font: nunito sans */
+@font-face {
+  font-family: "Nunito Sans";
+  font-weight: 300;
+  font-style: normal;
+  src: url("../fonts/NunitoSans-Light.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Nunito Sans";
+  font-weight: 600;
+  font-style: normal;
+  src: url("../fonts/NunitoSans-SemiBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Nunito Sans";
+  font-weight: 900;
+  font-style: normal;
+  src: url("../fonts/NunitoSans-Black.ttf") format("truetype");
+}
