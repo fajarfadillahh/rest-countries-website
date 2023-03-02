@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { RiSearchLine } from "react-icons/ri";
+import { Menu } from "@headlessui/react";
+import { RiSearchLine, RiArrowDownSLine } from "react-icons/ri";
 
 // import Api
 import { getAllCountries } from "../Api";
@@ -7,8 +8,19 @@ import { getAllCountries } from "../Api";
 // import components
 import CountryCard from "./CountryCard";
 
+// region list
+const regionList = [
+  { name: "None" },
+  { name: "Africa" },
+  { name: "America" },
+  { name: "Asia" },
+  { name: "Europe" },
+  { name: "Oceania" },
+];
+
 const Countries = () => {
   const [countries, setCountries] = useState([]);
+  const [regions, setRegions] = useState("None");
 
   useEffect(() => {
     getAllCountries()
@@ -39,7 +51,30 @@ const Countries = () => {
             />
           </form>
 
-          <h3>menu dropdown</h3>
+          <Menu as="div" className="relative z-10 w-max">
+            <Menu.Button className="inline-flex h-[56px] w-[210px] items-center justify-between rounded-md bg-white px-6 font-semibold text-gray-900 shadow-sm">
+              {regions === "None" ? "Filter by region" : regions}
+              <RiArrowDownSLine size="1.3rem" />
+            </Menu.Button>
+
+            <Menu.Items
+              as="ul"
+              className="absolute mt-2 flex w-full flex-col gap-1 rounded-md bg-white py-4 px-6 shadow-sm"
+            >
+              {regionList.map((region, index) => {
+                return (
+                  <Menu.Item
+                    as="li"
+                    key={index}
+                    onClick={() => setRegions(region.name)}
+                    className="cursor-pointer font-semibold text-gray-900 hover:text-gray-600"
+                  >
+                    {region.name}
+                  </Menu.Item>
+                );
+              })}
+            </Menu.Items>
+          </Menu>
         </div>
 
         <div className="grid gap-12 justify-self-center md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
