@@ -1,12 +1,16 @@
 import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+// import pages
+import Home from "./pages/Home";
 
 const App = () => {
   return (
-    <div>
-      <h1 className="text-[32px] font-black -tracking-tighter text-gray-900">
-        hello world
-      </h1>
-    </div>
+    <Router>
+      <Routes>
+        <Route index element={<Home />} />
+      </Routes>
+    </Router>
   );
 };
 

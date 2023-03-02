@@ -18,6 +18,10 @@ module.exports = {
       letterSpacing: {
         tighter: "0.92px",
       },
+      boxShadow: {
+        sm: "0 6px 16px rgba(0,0,0,0.05)",
+        md: "0 6px 16px rgba(0,0,0,0.1)",
+      },
     },
   },
   plugins: [],
