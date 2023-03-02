@@ -27,7 +27,7 @@ const Countries = () => {
           <h3>menu dropdown</h3>
         </div>
 
-        <div className="grid justify-items-center gap-12">
+        <div className="grid gap-12 justify-self-center md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {countries.slice(0, 12).map((country) => {
             return <CountryCard key={country.alpha2Code} country={country} />;
           })}

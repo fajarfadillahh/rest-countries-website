@@ -7,7 +7,7 @@ const CountryCard = ({ country }) => {
         <img
           src={country.flag}
           alt={`${country.name} flag`}
-          className="h-[210px] w-[320px] object-cover object-center"
+          className="h-[180px] w-[280px] object-cover object-center"
         />
       </div>
 
