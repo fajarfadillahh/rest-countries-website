@@ -2,7 +2,7 @@ import React from "react";
 
 const CountryCard = ({ country }) => {
   return (
-    <div className="w-max overflow-hidden rounded-lg shadow-sm">
+    <div className="w-max cursor-pointer overflow-hidden rounded-lg shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
       <div className="overflow-hidden">
         <img
           src={country.flag}
