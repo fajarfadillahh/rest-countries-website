@@ -35,7 +35,7 @@ const Countries = () => {
   return (
     <section className="section pt-32">
       <div className="container grid gap-8">
-        <div className="grid gap-12">
+        <div className="grid gap-12 lg:grid-cols-2">
           <form className="flex h-[56px] max-w-lg items-center rounded-md bg-white shadow-sm">
             <button
               type="submit"
@@ -51,7 +51,7 @@ const Countries = () => {
             />
           </form>
 
-          <Menu as="div" className="relative z-10 w-max">
+          <Menu as="div" className="relative z-10 w-max lg:justify-self-end">
             <Menu.Button className="inline-flex h-[56px] w-[210px] items-center justify-between rounded-md bg-white px-6 font-semibold text-gray-900 shadow-sm">
               {regions === "None" ? "Filter by region" : regions}
               <RiArrowDownSLine size="1.3rem" />
