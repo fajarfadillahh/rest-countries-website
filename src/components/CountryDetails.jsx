@@ -11,7 +11,7 @@ const CountryDetails = () => {
       <div className="container grid gap-16">
         <Link
           to="/"
-          className="inline-flex h-[48px] w-max items-center gap-4 rounded-md bg-white py-4 px-8 font-semibold text-gray-900 shadow-sm"
+          className="inline-flex h-[48px] w-max items-center gap-4 rounded-md bg-white py-4 px-8 font-semibold text-gray-900 shadow-sm transition-all duration-300 dark:bg-gray-700 dark:text-white"
         >
           <RiArrowLeftLine size="1.3rem" />
           Back
@@ -27,10 +27,12 @@ const CountryDetails = () => {
           </div>
 
           <div className="grid gap-6">
-            <h3 className="section-title text-[26px]">Belgium</h3>
+            <h3 className="section-title text-[26px] dark:text-white">
+              Belgium
+            </h3>
 
             <div className="flex flex-col gap-10">
-              <ul className="grid gap-[6px]">
+              <ul className="grid gap-3">
                 {[
                   ["Native Name:", "Bergie"],
                   ["Population:", "11,319,198"],
@@ -40,14 +42,16 @@ const CountryDetails = () => {
                 ].map(([title, value], index) => {
                   return (
                     <li key={index} className="inline-flex items-center gap-1">
-                      <h3 className="font-semibold text-gray-900">{title}</h3>
-                      <p className="text-gray-800">{value}</p>
+                      <h3 className="font-semibold text-gray-900 dark:text-white">
+                        {title}
+                      </h3>
+                      <p className="text-gray-800 dark:text-white">{value}</p>
                     </li>
                   );
                 })}
               </ul>
 
-              <ul className="grid gap-[6px]">
+              <ul className="grid gap-3">
                 {[
                   ["Top Level Domain:", ".be"],
                   ["Currencies:", "Euro"],
@@ -55,8 +59,10 @@ const CountryDetails = () => {
                 ].map(([title, value], index) => {
                   return (
                     <li key={index} className="inline-flex items-center gap-1">
-                      <h3 className="font-semibold text-gray-900">{title}</h3>
-                      <p className="text-gray-800">{value}</p>
+                      <h3 className="font-semibold text-gray-900 dark:text-white">
+                        {title}
+                      </h3>
+                      <p className="text-gray-800 dark:text-white">{value}</p>
                     </li>
                   );
                 })}
@@ -64,17 +70,17 @@ const CountryDetails = () => {
             </div>
 
             <div>
-              <h3 className="section-title mb-3 text-[20px]">
+              <h3 className="section-title mb-3 text-[20px] dark:text-white">
                 Border Countries:
               </h3>
               <ul className="flex flex-wrap items-center gap-4">
-                <li className="inline-flex w-[130px] justify-center rounded-md bg-white py-2 px-6 text-[14px] text-gray-800 shadow-sm">
+                <li className="inline-flex w-[130px] justify-center rounded-md bg-white py-2 px-6 text-[14px] text-gray-800 shadow-sm transition-all duration-300 dark:bg-gray-700 dark:text-white">
                   French
                 </li>
-                <li className="inline-flex w-[130px] justify-center rounded-md bg-white py-2 px-6 text-[14px] text-gray-800 shadow-sm">
+                <li className="inline-flex w-[130px] justify-center rounded-md bg-white py-2 px-6 text-[14px] text-gray-800 shadow-sm transition-all duration-300 dark:bg-gray-700 dark:text-white">
                   Germany
                 </li>
-                <li className="inline-flex w-[130px] justify-center rounded-md bg-white py-2 px-6 text-[14px] text-gray-800 shadow-sm">
+                <li className="inline-flex w-[130px] justify-center rounded-md bg-white py-2 px-6 text-[14px] text-gray-800 shadow-sm transition-all duration-300 dark:bg-gray-700 dark:text-white">
                   Netherlands
                 </li>
               </ul>
