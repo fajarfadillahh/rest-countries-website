@@ -20,9 +20,9 @@ const CountryCard = ({ country }) => {
 
           <ul className="flex flex-col gap-1 text-[14px]">
             {[
-              ["Population", `${country.population.toLocaleString()}`],
-              ["Region", `${country.region}`],
-              ["Capital", `${country.capital}`],
+              ["Population:", `${country.population.toLocaleString()}`],
+              ["Region:", `${country.region}`],
+              ["Capital:", `${country.capital}`],
             ].map(([title, value], index) => {
               return (
                 <li key={index} className="flex items-center gap-1">
