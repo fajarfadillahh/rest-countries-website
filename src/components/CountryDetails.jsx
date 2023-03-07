@@ -1,11 +1,29 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 import { RiArrowLeftLine } from "react-icons/ri";
+
+// import api
+import { getCountryByCode } from "../Api";
 
 // import image
 import Flag from "../assets/images/flag-be.svg";
 
 const CountryDetails = () => {
+  const { countryCode } = useParams();
+  const [country, setCountry] = useState(null);
+
+  useEffect(() => {
+    getCountryByCode(countryCode)
+      .then((result) => {
+        setCountry(result);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
+
+  console.log({ detail: country });
+
   return (
     <section className="section pt-32">
       <div className="container grid gap-16">
@@ -31,7 +49,7 @@ const CountryDetails = () => {
               Belgium
             </h3>
 
-            <div className="flex flex-col gap-10 sm:flex-row sm:items-start">
+            <div className="flex flex-col gap-10 sm:flex-row sm:items-start lg:gap-28">
               <ul className="grid gap-3">
                 {[
                   ["Native Name:", "Bergie"],

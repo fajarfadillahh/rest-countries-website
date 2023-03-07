@@ -10,7 +10,7 @@ const App = () => {
     <Router>
       <Routes>
         <Route index element={<Home />} />
-        <Route path="/country/:alpha2Code" element={<Details />} />
+        <Route path="/country/:countryCode" element={<Details />} />
       </Routes>
     </Router>
   );
