@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigation, useParams } from "react-router-dom";
 import { RiArrowLeftLine } from "react-icons/ri";
 
 // import api
@@ -22,8 +22,6 @@ const CountryDetails = () => {
       });
   }, []);
 
-  console.log({ detail: country });
-
   return (
     <section className="section pt-32">
       <div className="container grid gap-16">
@@ -36,7 +34,7 @@ const CountryDetails = () => {
         </Link>
 
         <div className="grid gap-12 sm:mx-auto sm:max-w-2xl sm:justify-center lg:max-w-full lg:grid-cols-2 lg:items-center lg:gap-20">
-          <div className="max-h-[260px] max-w-[600px] overflow-hidden sm:max-h-[320px] lg:max-h-[450px]">
+          <div className="max-h-[260px] max-w-[600px] overflow-hidden sm:max-h-[320px] lg:max-h-[420px]">
             <img
               src={Flag}
               alt="flag image"

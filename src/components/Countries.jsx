@@ -2,8 +2,9 @@ import React, { Fragment, useEffect, useState } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { RiSearchLine, RiArrowDownSLine } from "react-icons/ri";
 
-// import Api
-import { getAllCountries } from "../Api";
+// import axios &  api
+import axios from "axios";
+import { apiURL } from "../utils/Api";
 
 // import components
 import CountryCard from "./CountryCard";
@@ -23,13 +24,16 @@ const Countries = () => {
   const [regions, setRegions] = useState("None");
 
   useEffect(() => {
-    getAllCountries()
-      .then((result) => {
-        setCountries(result);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    const getAllCountries = async () => {
+      try {
+        const response = await axios.get(`${apiURL}/all`);
+        setCountries(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    getAllCountries();
   }, []);
 
   return (
@@ -88,7 +92,7 @@ const Countries = () => {
         </div>
 
         <div className="grid gap-12 justify-self-center md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {countries.slice(0, 12).map((country) => {
+          {countries.slice(0, 24).map((country) => {
             return <CountryCard key={country.alpha2Code} country={country} />;
           })}
         </div>

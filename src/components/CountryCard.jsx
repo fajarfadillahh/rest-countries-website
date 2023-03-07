@@ -7,7 +7,7 @@ const CountryCard = ({ country }) => {
       <div className="w-max cursor-pointer overflow-hidden rounded-lg shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
         <div className="overflow-hidden">
           <img
-            src={country.flags.svg}
+            src={country.flag}
             alt={`${country.name} flag`}
             className="h-[180px] w-[280px] object-cover object-center"
           />
