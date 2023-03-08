@@ -23,17 +23,24 @@ const Countries = () => {
   const [countries, setCountries] = useState([]);
   const [regions, setRegions] = useState("None");
 
-  useEffect(() => {
-    const getAllCountries = async () => {
-      try {
-        const response = await axios.get(`${apiURL}/all`);
-        setCountries(response.data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
+  // get all country
+  const getAllCountries = async () => {
+    try {
+      const response = await axios.get(`${apiURL}/all`);
+      setCountries(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
-    getAllCountries();
+  useEffect(() => {
+    let mounted = true;
+    getAllCountries().then((result) => {
+      if (mounted) {
+        getAllCountries(result);
+      }
+    });
+    return () => (mounted = false);
   }, []);
 
   return (
