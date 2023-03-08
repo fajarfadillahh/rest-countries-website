@@ -13,8 +13,8 @@ const CountryCard = ({ country }) => {
           />
         </div>
 
-        <div className="bg-white p-8 transition-all duration-300 dark:bg-gray-700">
-          <h3 className="section-title pb-4 text-[18px] dark:text-white">
+        <div className="max-w-[280px] overflow-hidden bg-white p-8 transition-all duration-300 dark:bg-gray-700">
+          <h3 className="section-title truncate pb-4 text-[18px] dark:text-white">
             {country.name}
           </h3>
 
