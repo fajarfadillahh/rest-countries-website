@@ -13,6 +13,7 @@ const CountryDetails = () => {
   useEffect(() => {
     window.scroll(0, 0);
 
+    // get country by code
     const getCountryByCode = async () => {
       try {
         const response = await axios.get(`${apiURL}/alpha/${countryCode}`);
@@ -21,7 +22,6 @@ const CountryDetails = () => {
         console.error(error);
       }
     };
-
     getCountryByCode();
   }, [countryCode]);
 
@@ -67,9 +67,7 @@ const CountryDetails = () => {
                       <h3 className="font-semibold text-gray-900 dark:text-white">
                         {title}
                       </h3>
-                      <p className="capitalize text-gray-800 dark:text-white">
-                        {value}
-                      </p>
+                      <p className="text-gray-800 dark:text-white">{value}</p>
                     </li>
                   );
                 })}
@@ -102,9 +100,7 @@ const CountryDetails = () => {
                       <h3 className="font-semibold text-gray-900 dark:text-white">
                         {title}
                       </h3>
-                      <p className="capitalize text-gray-800 dark:text-white">
-                        {value}
-                      </p>
+                      <p className="text-gray-800 dark:text-white">{value}</p>
                     </li>
                   );
                 })}
@@ -115,16 +111,24 @@ const CountryDetails = () => {
               <h3 className="section-title mb-3 text-[20px] dark:text-white">
                 Border Countries:
               </h3>
+
               <ul className="flex flex-wrap items-center gap-4">
-                <li className="inline-flex w-[130px] justify-center rounded-md bg-white py-2 px-6 text-[14px] text-gray-800 shadow-sm transition-all duration-300 dark:bg-gray-700 dark:text-white">
-                  French
-                </li>
-                <li className="inline-flex w-[130px] justify-center rounded-md bg-white py-2 px-6 text-[14px] text-gray-800 shadow-sm transition-all duration-300 dark:bg-gray-700 dark:text-white">
-                  Germany
-                </li>
-                <li className="inline-flex w-[130px] justify-center rounded-md bg-white py-2 px-6 text-[14px] text-gray-800 shadow-sm transition-all duration-300 dark:bg-gray-700 dark:text-white">
-                  Netherlands
-                </li>
+                {country.borders ? (
+                  country.borders?.map((border, index) => {
+                    return (
+                      <li
+                        key={index}
+                        className="inline-flex w-[70px] justify-center rounded-md bg-white py-2 text-[14px] text-gray-800 shadow-sm transition-all duration-300 dark:bg-gray-700 dark:text-white"
+                      >
+                        {border}
+                      </li>
+                    );
+                  })
+                ) : (
+                  <p className="inline-flex rounded-md bg-white py-2 px-6 text-[14px] text-gray-800 shadow-sm transition-all duration-300 dark:bg-gray-700 dark:text-white">
+                    No Borders...
+                  </p>
+                )}
               </ul>
             </div>
           </div>
