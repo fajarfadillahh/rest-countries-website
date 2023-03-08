@@ -1,12 +1,3 @@
 {
-  "routes": [
-    {
-      "src": "/",
-      "dest": "/"
-    },
-    {
-      "src": "/country/(.*)",
-      "dest": "/country/$1"
-    }
-  ]
+  "routes": [{ "source": "/(.*)", "destination": "/" }]
 }
