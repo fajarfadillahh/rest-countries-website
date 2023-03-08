@@ -8,6 +8,7 @@
     "build": "vite build",
     "preview": "vite preview"
   },
+  "homepage": "https://rest-countries-website-fadillah.vercel.app/",
   "dependencies": {
     "@headlessui/react": "^1.7.12",
     "autoprefixer": "^10.4.13",
