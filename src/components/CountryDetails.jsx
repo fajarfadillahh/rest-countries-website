@@ -67,7 +67,9 @@ const CountryDetails = () => {
                       <h3 className="font-semibold text-gray-900 dark:text-white">
                         {title}
                       </h3>
-                      <p className="text-gray-800 dark:text-white">{value}</p>
+                      <p className="capitalize text-gray-800 dark:text-white">
+                        {value}
+                      </p>
                     </li>
                   );
                 })}
@@ -84,14 +86,25 @@ const CountryDetails = () => {
                         : "Unknown"
                     }`,
                   ],
-                  ["Languages:", "Dutch, French, German"],
+                  [
+                    "Languages:",
+                    `${
+                      country.languages
+                        ? country.languages
+                            .map((language) => language.name)
+                            .join(", ")
+                        : "Unknown"
+                    }`,
+                  ],
                 ].map(([title, value], index) => {
                   return (
                     <li key={index} className="inline-flex items-center gap-1">
                       <h3 className="font-semibold text-gray-900 dark:text-white">
                         {title}
                       </h3>
-                      <p className="text-gray-800 dark:text-white">{value}</p>
+                      <p className="capitalize text-gray-800 dark:text-white">
+                        {value}
+                      </p>
                     </li>
                   );
                 })}
