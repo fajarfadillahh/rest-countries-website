@@ -20,7 +20,10 @@ const CountryCard = ({ country }) => {
 
           <ul className="flex flex-col gap-1 text-[14px]">
             {[
-              ["Population:", `${country.population.toLocaleString()}`],
+              [
+                "Population:",
+                new Intl.NumberFormat().format(country.population),
+              ],
               ["Region:", `${country.region}`],
               ["Capital:", `${country.capital}`],
             ].map(([title, value], index) => {

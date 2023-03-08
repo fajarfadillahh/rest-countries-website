@@ -1,26 +1,29 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigation, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { RiArrowLeftLine } from "react-icons/ri";
 
-// import api
-import { getCountryByCode } from "../Api";
-
-// import image
-import Flag from "../assets/images/flag-be.svg";
+// import axios & api
+import axios from "axios";
+import { apiURL } from "../utils/Api";
 
 const CountryDetails = () => {
+  const [country, setCountry] = useState([]);
   const { countryCode } = useParams();
-  const [country, setCountry] = useState(null);
 
   useEffect(() => {
-    getCountryByCode(countryCode)
-      .then((result) => {
-        setCountry(result);
-      })
-      .catch((error) => {
+    window.scroll(0, 0);
+
+    const getCountryByCode = async () => {
+      try {
+        const response = await axios.get(`${apiURL}/alpha/${countryCode}`);
+        setCountry(response.data);
+      } catch (error) {
         console.error(error);
-      });
-  }, []);
+      }
+    };
+
+    getCountryByCode();
+  }, [countryCode]);
 
   return (
     <section className="section pt-32">
@@ -34,27 +37,30 @@ const CountryDetails = () => {
         </Link>
 
         <div className="grid gap-12 sm:mx-auto sm:max-w-2xl sm:justify-center lg:max-w-full lg:grid-cols-2 lg:items-center lg:gap-20">
-          <div className="max-h-[260px] max-w-[600px] overflow-hidden sm:max-h-[320px] lg:max-h-[420px]">
+          <div className="h-[270px] max-w-[580px] overflow-hidden rounded-md sm:h-[320px] lg:h-[430px] xl:w-[580px]">
             <img
-              src={Flag}
-              alt="flag image"
+              src={country.flag}
+              alt="image flag"
               className="h-full w-full object-cover object-center"
             />
           </div>
 
           <div className="grid gap-6">
             <h3 className="section-title text-[26px] dark:text-white lg:text-[32px]">
-              Belgium
+              {country.name}
             </h3>
 
-            <div className="flex flex-col gap-10 sm:flex-row sm:items-start lg:gap-28">
+            <div className="flex flex-col gap-10 sm:flex-row sm:items-start lg:gap-20">
               <ul className="grid gap-3">
                 {[
-                  ["Native Name:", "Bergie"],
-                  ["Population:", "11,319,198"],
-                  ["Region:", "Euro"],
-                  ["Sub Region:", "Wester Euro"],
-                  ["Capital:", "Brussel"],
+                  ["Native Name:", `${country.nativeName}`],
+                  [
+                    "Population:",
+                    new Intl.NumberFormat().format(country.population),
+                  ],
+                  ["Region:", `${country.region}`],
+                  ["Sub Region:", `${country.subregion}`],
+                  ["Capital:", `${country.capital}`],
                 ].map(([title, value], index) => {
                   return (
                     <li key={index} className="inline-flex items-center gap-1">
@@ -69,8 +75,15 @@ const CountryDetails = () => {
 
               <ul className="grid gap-3">
                 {[
-                  ["Top Level Domain:", ".be"],
-                  ["Currencies:", "Euro"],
+                  ["Top Level Domain:", `${country.topLevelDomain}`],
+                  [
+                    "Currencies:",
+                    `${
+                      country.currencies
+                        ? country.currencies[0]?.name
+                        : "Unknown"
+                    }`,
+                  ],
                   ["Languages:", "Dutch, French, German"],
                 ].map(([title, value], index) => {
                   return (

@@ -92,7 +92,7 @@ const Countries = () => {
         </div>
 
         <div className="grid gap-12 justify-self-center md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {countries.slice(0, 24).map((country) => {
+          {countries?.slice(0, 36).map((country) => {
             return <CountryCard key={country.alpha2Code} country={country} />;
           })}
         </div>
