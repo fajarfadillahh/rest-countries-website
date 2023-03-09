@@ -10,26 +10,20 @@ const CountryDetails = () => {
   const [country, setCountry] = useState([]);
   const { countryCode } = useParams();
 
-  // get country by code
-  const getCountryByCode = async () => {
-    try {
-      const response = await axios.get(`${apiURL}/alpha/${countryCode}`);
-      setCountry(response.data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
   useEffect(() => {
     window.scroll(0, 0);
 
-    getCountryByCode().then((result) => {
-      let mounted = true;
-      if (mounted) {
-        getCountryByCode(result);
+    // get country by code
+    const getCountryByCode = async () => {
+      try {
+        const response = await axios.get(`${apiURL}/alpha/${countryCode}`);
+        setCountry(response.data);
+      } catch (error) {
+        console.error(error);
       }
-      return () => (mounted = false);
-    });
+    };
+
+    getCountryByCode();
   }, [countryCode]);
 
   return (
