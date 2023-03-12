@@ -67,7 +67,7 @@ const Countries = () => {
         </div>
 
         {filteredCountries.length === 0 ? (
-          <p className="text-[20px] font-semibold -tracking-tighter text-white">
+          <p className="text-[20px] font-semibold -tracking-tighter text-gray-900 dark:text-white">
             No matching countries found.
           </p>
         ) : (
