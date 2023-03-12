@@ -66,11 +66,17 @@ const Countries = () => {
           <CountryFilter setContinent={handleSelectedContinent} />
         </div>
 
-        <div className="grid gap-12 justify-self-center md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {filteredCountries.slice(0, 20).map((country) => (
-            <CountryCard key={country.alpha2Code} country={country} />
-          ))}
-        </div>
+        {filteredCountries.length === 0 ? (
+          <p className="text-[20px] font-semibold -tracking-tighter text-white">
+            No matching countries found.
+          </p>
+        ) : (
+          <div className="grid gap-12 justify-self-center md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {filteredCountries.map((country) => (
+              <CountryCard key={country.alpha2Code} country={country} />
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );
