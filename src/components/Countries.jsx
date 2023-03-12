@@ -11,6 +11,7 @@ import CountrySearch from "./CountrySearch";
 
 const Countries = () => {
   const [countries, setCountries] = useState([]);
+  const [filteredCountries, setFilteredCountries] = useState([]);
   const [selectedContinent, setSelectedContinent] = useState("All");
 
   // get all country
@@ -27,16 +28,20 @@ const Countries = () => {
     getAllCountries();
   }, []);
 
+  useEffect(() => {
+    // filter country by continent/region
+    const filtered =
+      selectedContinent === "All"
+        ? countries
+        : countries.filter((country) => country.region === selectedContinent);
+
+    setFilteredCountries(filtered);
+  }, [countries, selectedContinent]);
+
   // handle select continent
   const handleSelectedContinent = (continent) => {
     setSelectedContinent(continent);
   };
-
-  // filter country by continent/region
-  const filteredContinent =
-    selectedContinent === "All"
-      ? countries
-      : countries.filter((country) => country.region === selectedContinent);
 
   return (
     <section className="section pt-32">
@@ -48,7 +53,7 @@ const Countries = () => {
         </div>
 
         <div className="grid gap-12 justify-self-center md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {filteredContinent.slice(0, 100).map((country) => (
+          {filteredCountries.slice(0, 20).map((country) => (
             <CountryCard key={country.alpha2Code} country={country} />
           ))}
         </div>
