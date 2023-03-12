@@ -12,8 +12,13 @@ const continents = [
   { name: "Oceania" },
 ];
 
-const CountryFilter = () => {
+const CountryFilter = ({ setContinent }) => {
   const [selectedContinent, setSelectedContinent] = useState("All");
+
+  const handleSelectedContinent = (continent) => {
+    setSelectedContinent(continent);
+    setContinent(continent);
+  };
 
   return (
     <Menu as="div" className="relative z-10 w-max lg:justify-self-end">
@@ -40,7 +45,7 @@ const CountryFilter = () => {
               <Menu.Item
                 as="li"
                 key={index}
-                onClick={() => setSelectedContinent(continent.name)}
+                onClick={() => handleSelectedContinent(continent.name)}
                 className="cursor-pointer font-semibold text-gray-900 hover:text-gray-600 dark:text-white dark:hover:text-gray-500"
               >
                 {continent.name}
