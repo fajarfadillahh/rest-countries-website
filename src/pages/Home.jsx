@@ -7,8 +7,8 @@ import Countries from "../components/Countries";
 const Home = () => {
   return (
     <>
+      <Header />
       <main className="mx-auto min-h-screen max-w-[1440px] overflow-hidden bg-gray-500 transition-all duration-300 dark:bg-gray-800">
-        <Header />
         <Countries />
       </main>
     </>

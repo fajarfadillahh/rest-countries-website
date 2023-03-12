@@ -4,12 +4,9 @@ import { RiSearchLine } from "react-icons/ri";
 const CountrySearch = ({ setCountry }) => {
   return (
     <form className="flex h-[56px] max-w-lg items-center rounded-md bg-white shadow-sm transition-all duration-300 dark:bg-gray-700">
-      <button
-        type="submit"
-        className="inline-flex h-full min-w-[80px] items-center justify-center text-[1.3rem] text-gray-600 dark:text-white"
-      >
+      <div className="inline-flex h-full min-w-[80px] items-center justify-center text-[1.3rem] text-gray-600 dark:text-white">
         <RiSearchLine />
-      </button>
+      </div>
       <input
         type="text"
         onChange={setCountry}
