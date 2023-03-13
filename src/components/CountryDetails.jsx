@@ -139,18 +139,20 @@ const CountryDetails = () => {
                     {country.borders ? (
                       country.borders?.map((border, index) => {
                         return (
-                          <li
+                          <Link
+                            to={`/country/${border.toLowerCase()}`}
+                            onClick={() => setIsLoading(true)}
                             key={index}
                             className="inline-flex w-[70px] justify-center rounded-md bg-white py-2 text-[14px] text-gray-800 shadow-sm transition-all duration-300 dark:bg-gray-700 dark:text-white"
                           >
                             {border}
-                          </li>
+                          </Link>
                         );
                       })
                     ) : (
-                      <p className="inline-flex rounded-md bg-white py-2 px-6 text-[14px] text-gray-800 shadow-sm transition-all duration-300 dark:bg-gray-700 dark:text-white">
+                      <li className="inline-flex rounded-md bg-white py-2 px-6 text-[14px] text-gray-800 shadow-sm transition-all duration-300 dark:bg-gray-700 dark:text-white">
                         No Borders...
-                      </p>
+                      </li>
                     )}
                   </ul>
                 </div>
