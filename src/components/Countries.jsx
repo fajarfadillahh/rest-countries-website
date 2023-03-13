@@ -81,7 +81,7 @@ const Countries = () => {
             </div>
 
             <div className="grid gap-12 justify-self-center md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-              {filteredCountries.slice(0, 30).map((country) => (
+              {filteredCountries.map((country) => (
                 <CountryCard key={country.alpha2Code} country={country} />
               ))}
             </div>

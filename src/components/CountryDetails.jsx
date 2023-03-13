@@ -65,7 +65,7 @@ const CountryDetails = () => {
                   {country.name}
                 </h3>
 
-                <div className="flex flex-col gap-10 sm:flex-row sm:items-start lg:gap-20">
+                <div className="grid gap-10 sm:grid-cols-2 sm:items-start lg:gap-20">
                   <ul className="grid gap-3">
                     {[
                       ["Native Name:", `${country.nativeName}`],
@@ -80,9 +80,9 @@ const CountryDetails = () => {
                       return (
                         <li
                           key={index}
-                          className="inline-flex items-center gap-1"
+                          className="inline-flex items-start gap-1"
                         >
-                          <h3 className="font-semibold text-gray-900 dark:text-white">
+                          <h3 className="whitespace-nowrap font-semibold text-gray-900 dark:text-white">
                             {title}
                           </h3>
                           <p className="text-gray-800 dark:text-white">
@@ -118,9 +118,9 @@ const CountryDetails = () => {
                       return (
                         <li
                           key={index}
-                          className="inline-flex items-center gap-1"
+                          className="inline-flex items-start gap-1"
                         >
-                          <h3 className="font-semibold text-gray-900 dark:text-white">
+                          <h3 className="whitespace-nowrap font-semibold text-gray-900 dark:text-white">
                             {title}
                           </h3>
                           <p className="text-gray-800 dark:text-white">
