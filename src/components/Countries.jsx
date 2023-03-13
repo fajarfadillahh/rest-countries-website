@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import PulseLoader from "react-spinners/PulseLoader";
 
 // import axios &  api
 import axios from "axios";
@@ -65,8 +66,9 @@ const Countries = () => {
     <section className="section pt-32">
       <div className="container grid gap-8">
         {isLoading ? (
-          <div className="flex h-[300px] w-full items-center justify-center">
-            <p className="text-[20px] font-semibold -tracking-tighter text-gray-900 dark:text-white">
+          <div className="fixed top-0 left-0 z-50 flex h-screen w-full flex-col items-center justify-center gap-4 bg-gray-900/80">
+            <PulseLoader color="#ffffff" />
+            <p className="text-[20px] font-semibold -tracking-tighter text-white">
               Loading data countries...
             </p>
           </div>
