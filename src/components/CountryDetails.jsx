@@ -25,16 +25,20 @@ const CountryDetails = () => {
       }
     };
 
-    getCountryByCode();
+    setTimeout(() => {
+      getCountryByCode();
+    }, 3000);
   }, [countryCode]);
 
   return (
     <section className="section pt-32">
       <div className="container grid gap-10">
         {isLoading ? (
-          <p className="text-[18px] font-semibold -tracking-tighter text-white">
-            Loading data countries...
-          </p>
+          <div className="flex h-[300px] w-full items-center justify-center">
+            <p className="text-[20px] font-semibold -tracking-tighter text-gray-900 dark:text-white">
+              Loading data countries...
+            </p>
+          </div>
         ) : (
           <div className="grid gap-10">
             <Link
