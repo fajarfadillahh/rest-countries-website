@@ -4,12 +4,12 @@ import { RiArrowDownSLine } from "react-icons/ri";
 
 // region list
 const continents = [
-  { name: "All" },
-  { name: "Africa" },
-  { name: "Americas" },
-  { name: "Asia" },
-  { name: "Europe" },
-  { name: "Oceania" },
+  { name: "All", value: "All" },
+  { name: "Africa", value: "Africa" },
+  { name: "America", value: "Americas" },
+  { name: "Asia", value: "Asia" },
+  { name: "Europe", value: "Europe" },
+  { name: "Oceania", value: "Oceania" },
 ];
 
 const CountryFilter = ({ setContinent }) => {
@@ -45,7 +45,7 @@ const CountryFilter = ({ setContinent }) => {
               <Menu.Item
                 as="li"
                 key={index}
-                onClick={() => handleSelectedContinent(continent.name)}
+                onClick={() => handleSelectedContinent(continent.value)}
                 className="cursor-pointer font-semibold text-gray-900 hover:text-gray-600 dark:text-white dark:hover:text-gray-500"
               >
                 {continent.name}
