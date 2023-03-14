@@ -1,12 +1,16 @@
 import React from "react";
 
 // import components
+import Header from "../components/Header";
 import Countries from "../components/Countries";
 
 const Home = () => {
   return (
     <>
-      <Countries />
+      <Header />
+      <main className="main">
+        <Countries />
+      </main>
     </>
   );
 };

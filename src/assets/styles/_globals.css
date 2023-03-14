@@ -1,6 +1,6 @@
-/* ::-webkit-scrollbar */
+/* ::-WEBKIT-SCROLLBAR */
 ::-webkit-scrollbar {
-  @apply w-2 bg-gray-900/5;
+  @apply w-2 bg-gray-900/5 dark:bg-gray-900/60;
 }
 ::-webkit-scrollbar-thumb {
   @apply rounded-full bg-gray-900/40 hover:bg-gray-900/60;

@@ -14,4 +14,9 @@
   .container {
     @apply mx-auto w-[calc(100%-3rem)] max-w-7xl;
   }
+
+  /* main class / main container */
+  .main {
+    @apply mx-auto min-h-screen max-w-[1440px] overflow-hidden bg-gray-500 transition-all duration-300 dark:bg-gray-800;
+  }
 }
